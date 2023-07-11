@@ -79,7 +79,7 @@ public class PlayerControlers : MonoBehaviour,IDamagable
     {
         if (canmove && MovementDirection != Vector2Int.zero && !isHit)
         {
-            rb.AddForce(MovementDirection * 45);
+            rb.AddForce(MovementDirection * 35);
             anime.Play("Roll Up");
 
 
@@ -208,7 +208,7 @@ public class PlayerControlers : MonoBehaviour,IDamagable
     }
     public void StopDashing(bool isHitWall)
     {
-        AddForce(5);
+        AddForce(0.3f);
 
         trailRenderer.enabled = false;
 

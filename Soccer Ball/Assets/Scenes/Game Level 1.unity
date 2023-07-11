@@ -638,7 +638,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -50051,6 +50051,22 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1585319451701178627, guid: 9b95ab3ec57b16544abcacb6ff6f7a12, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -53
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599445188411378112, guid: 9b95ab3ec57b16544abcacb6ff6f7a12, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823968939276460502, guid: 9b95ab3ec57b16544abcacb6ff6f7a12, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -71
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823968939276460502, guid: 9b95ab3ec57b16544abcacb6ff6f7a12, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3184394869315404466, guid: 9b95ab3ec57b16544abcacb6ff6f7a12, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -50058,6 +50074,14 @@ PrefabInstance:
     - target: {fileID: 3273253168525530392, guid: 9b95ab3ec57b16544abcacb6ff6f7a12, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394077524311772519, guid: 9b95ab3ec57b16544abcacb6ff6f7a12, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394077524311772519, guid: 9b95ab3ec57b16544abcacb6ff6f7a12, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 4799464477353656546, guid: 9b95ab3ec57b16544abcacb6ff6f7a12, type: 3}
       propertyPath: m_Name
@@ -50154,6 +50178,10 @@ PrefabInstance:
     - target: {fileID: 6506289833731989924, guid: 9b95ab3ec57b16544abcacb6ff6f7a12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048960714404097070, guid: 9b95ab3ec57b16544abcacb6ff6f7a12, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

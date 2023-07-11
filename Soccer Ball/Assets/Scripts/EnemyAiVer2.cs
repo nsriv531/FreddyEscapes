@@ -230,6 +230,7 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
         attackTimer = Random.Range(1f, timeUntileAttack);
         aggresivetimer = timeUntileAttack;
         animator.SetBool("Kick", false);
+        ChangeRoles();
         spriteRenderer.color = Color.white;
         isgetingDirection = true;
 
@@ -263,7 +264,7 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
     {
         Health -= damage;
         if(Health <= 0) {
-            Death();
+            ChangeRoles();
             gameObject.SetActive(false);
             
         
@@ -293,7 +294,7 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
             }
         }
     }
-    public void Death()
+    public void ChangeRoles()
     {
         
             enemyBrain.EnemyDead();

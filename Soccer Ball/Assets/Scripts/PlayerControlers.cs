@@ -138,7 +138,7 @@ public class PlayerControlers : MonoBehaviour,IDamagable
             }
             if(Time.time < dashElpssetime + dashDuration && isDashing)
              {
-                    attack.AattackTheEnemy(0 );
+                    attack.AattackTheEnemy(3 );
                 ballSprite.color = Color.red;
                 trailRenderer.enabled = true;
             //change this is a quick fix
@@ -200,7 +200,7 @@ public class PlayerControlers : MonoBehaviour,IDamagable
     {
         if(isDashing)
         {
-             attack.AattackTheEnemy(5 * DashValue);
+            // attack.AattackTheEnemy(5 * DashValue);
 
         }
         StopDashing(true);

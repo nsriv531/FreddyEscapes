@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562a3b6a0c2c9bd46a248de228a796e4, type: 3}
   m_Name: EnemyDat
   m_EditorClassIdentifier: 
-  MaxPursuers: 3
-  pursures: 3
+  MaxPursuers: 2
+  pursures: 2

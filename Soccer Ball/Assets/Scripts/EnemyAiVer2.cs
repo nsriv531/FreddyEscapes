@@ -210,15 +210,15 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
         attackTimer -= Time.deltaTime;
         if(attackTimer < 0)
         {
+            isgetingDirection= false;
             canAttack= true;
         }
         if(attackTimer < 0.6f)
         {
             spriteRenderer.color = Color.red;
         }
-        if(attackTimer < 0.5f)
+        if(attackTimer < 0.3f)
         {
-            isgetingDirection= false;
         }
 
     }
@@ -230,7 +230,6 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
         attackTimer = Random.Range(1f, timeUntileAttack);
         aggresivetimer = timeUntileAttack;
         animator.SetBool("Kick", false);
-        ChangeRoles();
         spriteRenderer.color = Color.white;
         isgetingDirection = true;
 

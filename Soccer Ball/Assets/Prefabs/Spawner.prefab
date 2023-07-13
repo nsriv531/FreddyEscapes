@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2560358628972762044
 MonoBehaviour:
@@ -45,18 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de05d3a18b52ea4cb6d8debd73df93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 0}
-  healthSpawnrate: 1
-  enemySpawnrate: 20
-  healthPickUp1: {fileID: 8687003867141442107, guid: ea14f531065c80340af30d269e89c504, type: 3}
-  enemies:
-  - {fileID: 8748277239648190879, guid: 851d62cdf44256d479123f2d7de41e8d, type: 3}
-  - {fileID: 2617490507135414349, guid: bf204be37c8c3894c9a83e05d83cc4b4, type: 3}
-  - {fileID: 4732688909656077599, guid: d7ea76dcd8561864c8ab420c20fb29c2, type: 3}
-  timer: 0
-  spawnTick: 0.1
-  pos: {fileID: 7387520311340119730}
-  maxSpawn: 3
+  maxEnemyTOSpawn: 0
+  totalEnemySpawned: 0
+  totalSpawned: 0
 --- !u!58 &-7215724482453887990
 CircleCollider2D:
   m_ObjectHideFlags: 0

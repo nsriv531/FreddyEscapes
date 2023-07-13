@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioPlayer: {fileID: 0}
+  gameEvent: {fileID: 0}
 --- !u!70 &5896962644112100764
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -117,7 +118,7 @@ Transform:
   m_Children:
   - {fileID: 8837227792833259633}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5022890327659202391
 SpriteRenderer:
@@ -139,7 +140,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -381,4 +382,4 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0}
   deathSounds: []
   PlayDeathSound: 0
-  Health: 6
+  Health: 9

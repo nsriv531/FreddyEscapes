@@ -303,7 +303,7 @@ Transform:
   - {fileID: 4717868143632191177}
   - {fileID: 3556205147967120350}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3977194662535607972
 SpriteRenderer:
@@ -391,8 +391,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.5
-  m_LinearDrag: 1.5
-  m_AngularDrag: 1.5
+  m_LinearDrag: 1.57
+  m_AngularDrag: 1.61
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -568,16 +568,12 @@ MonoBehaviour:
   Net: {fileID: 0}
   camera: {fileID: 0}
   DashValue: 0
-  isDashing: 0
   dashDuration: 0.5
-  Dashspeed: 50
-  DashAimDirection: {x: 0, y: 0}
-  MovementDirection: {x: 0, y: 0}
-  elpseMoveTime: 0
   duration: 0.4
   isHit: 0
   canmove: 0
   DashAmount: 1
+  AttackDamage: 4
   playerEvents: {fileID: 11400000, guid: 66b95b4c13626eb419cc0c6a177dff77, type: 2}
 --- !u!82 &486148197873194894
 AudioSource:

@@ -13,6 +13,11 @@ public class ComboCounter : MonoBehaviour
         gameEvent.onEnemyHit += IncreaseComboCount;
         gameEvent.OnPlayerDamaged+= ResetComboCOunt;
     }
+    private void OnDisable()
+    {
+        gameEvent.onEnemyHit -= IncreaseComboCount;
+        gameEvent.OnPlayerDamaged -= ResetComboCOunt;
+    }
     public void IncreaseComboCount()
     {
         combocount++;
@@ -28,6 +33,7 @@ public class ComboCounter : MonoBehaviour
         {
             gameEvent.OnComboMeterReset?.Invoke();
             combocount= 0;
+
 
         }
     }

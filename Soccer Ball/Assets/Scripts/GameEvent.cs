@@ -17,5 +17,7 @@ public class GameEvent : ScriptableObject
     public Action OnPlayerDamaged;
     public Action onEnemyHit;
     public Action onGameOver;
-    public Action<int> onEnemyCount;
+    public Action<int> onEnemyToKillCount;
+    public Action<int> onEnemyKillCount;
+
 }

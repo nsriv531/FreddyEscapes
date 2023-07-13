@@ -19,16 +19,16 @@ public class PlayerControlers : MonoBehaviour,IDamagable
     float dashChargDuration = 1;
     float elapsetime;
 
-    public bool isDashing;
-    public float dashDuration = 0.2f;
-    public int Dashspeed = 80;
+    private bool isDashing;
+    public float dashDuration = 0.5f;
+    private int Dashspeed = 50;
     float dashElpssetime;
     private float dashAngle;
 
-    public Vector2 DashAimDirection;
-    public Vector2Int MovementDirection;
+    private Vector2 DashAimDirection;
+    private Vector2Int MovementDirection;
 
-    public float elpseMoveTime;
+    private float elpseMoveTime;
     public float duration = 1f;
     public bool isHit;
 
@@ -39,6 +39,10 @@ public class PlayerControlers : MonoBehaviour,IDamagable
 
     private float dashUseElapseTime;
 
+
+    public int AttackDamage;
+
+    private float dashCooldownRate = 1;
 
     public GameEvent playerEvents;
     // Start is called before the first frame update
@@ -52,7 +56,14 @@ public class PlayerControlers : MonoBehaviour,IDamagable
         ballSprite= GetComponent<SpriteRenderer>();
         canmove = true;
         trailRenderer.enabled = false;
+        Net = GameObject.FindGameObjectWithTag("Net").transform;
+        playerEvents.onComboMeterIncrease += DashCooldownIncrease;
         
+    }
+    private void OnDisable()
+    {
+        playerEvents.onComboMeterIncrease -= DashCooldownIncrease;
+
     }
 
     private void Update()
@@ -79,7 +90,7 @@ public class PlayerControlers : MonoBehaviour,IDamagable
     {
         if (canmove && MovementDirection != Vector2Int.zero && !isHit)
         {
-            rb.AddForce(MovementDirection * 35);
+            rb.AddForce(MovementDirection * 45);
             anime.Play("Roll Up");
 
 
@@ -99,10 +110,10 @@ public class PlayerControlers : MonoBehaviour,IDamagable
         Debug.Log("PlayerHit");
         if (!isHit)
         {
-
+            dashCooldownRate = 1;
             playerEvents.OnPlayerDamaged?.Invoke();
             StopDashing(true);
-            StartCoroutine(MoveToGoal());
+            StartCoroutine(MoveToGoal(takeDamage));
         }
     }
     public void Dash()
@@ -138,7 +149,7 @@ public class PlayerControlers : MonoBehaviour,IDamagable
             }
             if(Time.time < dashElpssetime + dashDuration && isDashing)
              {
-                    attack.AattackTheEnemy(3 );
+                    attack.AattackTheEnemy(AttackDamage );
                 ballSprite.color = Color.red;
                 trailRenderer.enabled = true;
             //change this is a quick fix
@@ -153,7 +164,7 @@ public class PlayerControlers : MonoBehaviour,IDamagable
         
         if(DashAmount<= 0)
         {
-            dashUseElapseTime -= Time.deltaTime * 1f;
+            dashUseElapseTime -= Time.deltaTime * dashCooldownRate;
             playerEvents.OnChargCoolDown?.Invoke(dashUseElapseTime);
 
             if (dashUseElapseTime <= 0)
@@ -162,8 +173,8 @@ public class PlayerControlers : MonoBehaviour,IDamagable
             }
         }
     }
-   
-    private IEnumerator MoveToGoal()
+
+    private IEnumerator MoveToGoal(float Damage)
     {
         isHit = true;
         Vector2 angleTOnet = Net.transform.position - transform.position;
@@ -179,7 +190,7 @@ public class PlayerControlers : MonoBehaviour,IDamagable
             elpseMoveTime-= Time.deltaTime;
 
             ballSprite.color= Color.yellow;
-            rb.velocity = transform.right * 35;
+            rb.velocity = transform.right * Damage;
 
             if(elpseMoveTime <=0)
             {
@@ -203,7 +214,12 @@ public class PlayerControlers : MonoBehaviour,IDamagable
             // attack.AattackTheEnemy(5 * DashValue);
 
         }
-        StopDashing(true);
+        if (collision.gameObject.CompareTag("Enemies"))
+        {
+
+        }
+       
+         StopDashing(true);
 
     }
     public void StopDashing(bool isHitWall)
@@ -229,6 +245,12 @@ public class PlayerControlers : MonoBehaviour,IDamagable
     public bool ReturnPlayerIsHit()
     {
         return isHit;
+    }
+    public void DashCooldownIncrease(int dash)
+    {
+        dashCooldownRate =    1 + ((dash / 10f) + 0.05f);
+
+        
     }
 }
 

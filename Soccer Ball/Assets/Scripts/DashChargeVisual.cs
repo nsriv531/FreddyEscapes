@@ -55,6 +55,8 @@ public class DashChargeVisual : MonoBehaviour
     private void OnDisable()
     {
         playerEvents.onChargeValue -= UpdateCharge;
+        playerEvents.onChargeFirection -= DashDirection;
+
 
     }
 }

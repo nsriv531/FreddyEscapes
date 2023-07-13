@@ -375,6 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBrain: {fileID: 11400000, guid: 419735a8b8933054dbbfcd6326c9028a, type: 2}
   enemyAi: {fileID: 0}
+  gameEvent: {fileID: 11400000, guid: 66b95b4c13626eb419cc0c6a177dff77, type: 2}
   DeathSounds: []
   canAttack: 0
   agressive: 0

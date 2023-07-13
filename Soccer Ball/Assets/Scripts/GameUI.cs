@@ -74,5 +74,13 @@ public class GameUI : MonoBehaviour
     {
         combocounter.SetActive(false);
     }
+    private void OnDisable()
+    {
+        playerEvents.OnChargCoolDown -= Cooldown;
+        playerEvents.onTimerChange -= DisplayTime;
+        playerEvents.onComboMeterIncrease -= DisplayCOmbo;
+        playerEvents.OnComboMeterReset -= ComboResetDisplay;
+        playerEvents.onGameOver -= DisplayGameOver;
+    }
 
 }

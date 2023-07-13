@@ -48612,7 +48612,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1195053291}
   - component: {fileID: 1195053293}
-  - component: {fileID: 1195053294}
   m_Layer: 8
   m_Name: ExitBottom
   m_TagString: Untagged
@@ -48680,22 +48679,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8574638, y: 18.811869}
   m_EdgeRadius: 0
---- !u!114 &1195053294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1195053290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34a31764226a19e46a33cf4281120302, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  placement: {fileID: 1195053291}
-  enemies: {fileID: 8748277239648190879, guid: 851d62cdf44256d479123f2d7de41e8d, type: 3}
-  spawnTimer: 0
-  spawnRate: 4
 --- !u!1001 &1236200440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48752,6 +48735,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ememies(Players)
       objectReference: {fileID: 0}
+    - target: {fileID: 8748277239648190879, guid: 851d62cdf44256d479123f2d7de41e8d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48772,7 +48759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1238736411
 Transform:
   m_ObjectHideFlags: 0
@@ -49005,7 +48992,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1450034462}
   - component: {fileID: 1450034464}
-  - component: {fileID: 1450034463}
   m_Layer: 8
   m_Name: ExitTop
   m_TagString: Untagged
@@ -49028,18 +49014,6 @@ Transform:
   m_Father: {fileID: 607083003}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1450034463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450034461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83797dc6bd84c9b46acfd275707d4412, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1450034464
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49247,7 +49221,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
+  m_Color: {r: 0.8443396, g: 1, b: 0.8782461, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -49735,14 +49709,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2647306810010746064, guid: eb342d4beb119304b9c5a6dd2896ab16, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2647306810010746064, guid: eb342d4beb119304b9c5a6dd2896ab16, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3685721504162236404, guid: eb342d4beb119304b9c5a6dd2896ab16, type: 3}
       propertyPath: m_Name
       value: Exit
@@ -49790,10 +49756,6 @@ PrefabInstance:
     - target: {fileID: 3744924843273972248, guid: eb342d4beb119304b9c5a6dd2896ab16, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397856198598167565, guid: eb342d4beb119304b9c5a6dd2896ab16, type: 3}
-      propertyPath: m_Name
-      value: box area
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

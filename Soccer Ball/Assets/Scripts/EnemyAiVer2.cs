@@ -12,6 +12,7 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
     private EnemyAiVer2 enemyAi;
     private SpriteRenderer spriteRenderer;
     private AttackComponent attackComponent;
+    public GameEvent gameEvent;
     [SerializeField]
     public AudioClip[] DeathSounds;
     #region attacking
@@ -43,7 +44,10 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
     public float Health;
     private Transform Exit;
     private bool isGambling;
-    
+
+    public int kickRange = 40;
+    public float kickKnockBack = 35;
+    private bool isdead;
 
     private void Start()
     {
@@ -65,35 +69,39 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
 
     private void Update()
     {
-        if (!canAttack)
+        if (!isdead)
         {
 
-            enemyBrain.CheckiFCanPersue(enemyAi);
-        }
+            if (!canAttack)
+            {
+
+                enemyBrain.CheckiFCanPersue(enemyAi);
+            }
      
-        if(isgetingDirection)
-        {
-            if (pursue)
+            if(isgetingDirection)
             {
-                GetDirection(player.transform);
+                if (pursue)
+                {
+                    GetDirection(player.transform);
+
+                }
+                else
+                {
+                    GetDirection(Exit);
+                }
 
             }
-            else
-            {
-                GetDirection(Exit);
-            }
-
-        }
 
         
 
-        if(pursue)
-        {
-            Attack();
-        }
-        else
-        {
-            Defend();
+            if(pursue)
+            {
+                Attack();
+            }
+            else
+            {
+                Defend();
+            }
         }
     }
     private void FixedUpdate()
@@ -140,7 +148,7 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
             else if (canAttack)
             {
                // Death();
-               attackComponent.AattackTheEnemy(5);
+               attackComponent.AattackTheEnemy(kickKnockBack);
                 animator.SetBool("Kick", true);
             }
         }
@@ -236,7 +244,7 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
     }
     public void AddforceToDirection()
     {
-        rb2d.velocity = directionToPlayer * 40;
+        rb2d.velocity = directionToPlayer * kickRange;
     }
     /**
     public void OnCollisionEnter2D(Collision2D collision)
@@ -261,10 +269,17 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
     **/
     public void TakeDamage(float damage)
     {
+        if (canAttack)
+            return;
         Health -= damage;
+        animator.Play("Hit");
         if(Health <= 0) {
+            isdead = true;
             ChangeRoles();
-            gameObject.SetActive(false);
+            spriteRenderer.color = Color.white;
+
+            animator.Play("death");
+            gameEvent.onEnemyKillCount?.Invoke(1);
             
         
         }
@@ -309,7 +324,11 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
     {
         pursue = false;
     }
-   
+    public void DestroyGameObject()
+    {
+        Destroy(gameObject);
+    }
+
 }
 
 

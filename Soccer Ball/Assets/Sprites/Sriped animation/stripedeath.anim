@@ -22,18 +22,18 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 1571201415, guid: 56b30430a77e43840b703614deab25eb, type: 3}
-    - time: 0.083333336
+    - time: 0.11111111
       value: {fileID: 1442322290, guid: 56b30430a77e43840b703614deab25eb, type: 3}
-    - time: 0.16666667
+    - time: 0.22222222
       value: {fileID: 308993740, guid: 56b30430a77e43840b703614deab25eb, type: 3}
-    - time: 0.25
+    - time: 0.33333334
       value: {fileID: 501610671, guid: 56b30430a77e43840b703614deab25eb, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 60
+  m_SampleRate: 45
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.26666668
+    m_StopTime: 0.35555556
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -78,4 +78,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.31111112
+    functionName: DestroyGameObject
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

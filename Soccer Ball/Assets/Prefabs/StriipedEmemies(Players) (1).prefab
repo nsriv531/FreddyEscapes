@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 6659746540366143594}
   - component: {fileID: 8316608559592189834}
   - component: {fileID: 1841569029797938380}
-  - component: {fileID: 3465948562685039923}
   m_Layer: 7
   m_Name: StriipedEmemies(Players) (1)
   m_TagString: Enemies
@@ -34,7 +33,8 @@ Transform:
   m_LocalPosition: {x: -8.22, y: 0, z: -5.588556}
   m_LocalScale: {x: 6.3, y: 6.3, z: 1.26}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 6517448554828661579}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -164,7 +164,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2617490507135414349}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -293,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBrain: {fileID: 11400000, guid: 419735a8b8933054dbbfcd6326c9028a, type: 2}
   enemyAi: {fileID: 0}
+  gameEvent: {fileID: 11400000, guid: 66b95b4c13626eb419cc0c6a177dff77, type: 2}
   DeathSounds: []
   canAttack: 0
   agressive: 0
@@ -300,15 +301,63 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0}
   deathSounds: []
   PlayDeathSound: 0
-  health: 2
-  vunrable: 0
---- !u!70 &3465948562685039923
+  Health: 9
+  kickRange: 45
+  kickKnockBack: 35
+--- !u!1 &4317029313101675734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6517448554828661579}
+  - component: {fileID: 8265182215576709347}
+  - component: {fileID: 7235534968755189546}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6517448554828661579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317029313101675734}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.005, y: 0.096, z: 0}
+  m_LocalScale: {x: 0.79365075, y: 0.79365075, z: 0.79365087}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5539919507681639725}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8265182215576709347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317029313101675734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aae620909d7ada4681440eb9b3a8c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioPlayer: {fileID: 0}
+  gameEvent: {fileID: 11400000, guid: 66b95b4c13626eb419cc0c6a177dff77, type: 2}
+--- !u!70 &7235534968755189546
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2617490507135414349}
+  m_GameObject: {fileID: 4317029313101675734}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -334,6 +383,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000036137607, y: -0.30314425}
-  m_Size: {x: 0.9651563, y: 0.35886857}
+  m_Offset: {x: -0.00000004053427, y: -0.34002614}
+  m_Size: {x: 1.0000002, y: 0.6437855}
   m_Direction: 1

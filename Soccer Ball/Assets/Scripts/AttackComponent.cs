@@ -65,7 +65,12 @@ public class AttackComponent : MonoBehaviour
             {
                 gameEvent.onEnemyHit?.Invoke();
             }
-            enemyHitData.TakeDamage(damage);
+            if (!audioPlayer.isPlaying)
+            {
+                audioPlayer.Play();
+                enemyHitData.TakeDamage(damage);
+
+            }
             enemyHitData = null;
 
      

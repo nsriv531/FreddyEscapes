@@ -14,7 +14,6 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
     private AttackComponent attackComponent;
     public GameEvent gameEvent;
     [SerializeField]
-    public AudioClip[] DeathSounds;
     #region attacking
     public bool canAttack;
     float timeUntileAttack = 1.5f;
@@ -64,7 +63,7 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
         ui = GameObject.FindGameObjectWithTag("GameController");
         Exit = GameObject.FindGameObjectWithTag("Exit").transform;
         attackComponent = GetComponentInChildren<AttackComponent>();
-
+        audioplayer = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -223,10 +222,11 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
         }
         if(attackTimer < 0.6f)
         {
-            spriteRenderer.color = Color.red;
+            
         }
         if(attackTimer < 0.3f)
         {
+            spriteRenderer.color = Color.red;
         }
 
     }
@@ -270,14 +270,19 @@ public class EnemyAiVer2 : MonoBehaviour,IDamagable
     public void TakeDamage(float damage)
     {
         if (canAttack)
+        {
             return;
+
+        }
         Health -= damage;
         animator.Play("Hit");
         if(Health <= 0) {
             isdead = true;
             ChangeRoles();
             spriteRenderer.color = Color.white;
-
+            int rannum = Random.Range(0, deathSounds.Length);
+            audioplayer.clip = deathSounds[rannum];
+            audioplayer.Play();
             animator.Play("death");
             gameEvent.onEnemyKillCount?.Invoke(1);
             

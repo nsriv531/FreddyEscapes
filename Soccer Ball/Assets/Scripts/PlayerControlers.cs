@@ -58,11 +58,14 @@ public class PlayerControlers : MonoBehaviour,IDamagable
         trailRenderer.enabled = false;
         Net = GameObject.FindGameObjectWithTag("Net").transform;
         playerEvents.onComboMeterIncrease += DashCooldownIncrease;
+        playerEvents.onEnemyHit += StopDashing;
         
     }
     private void OnDisable()
     {
         playerEvents.onComboMeterIncrease -= DashCooldownIncrease;
+        playerEvents.onEnemyHit -= StopDashing;
+
 
     }
 
@@ -112,7 +115,7 @@ public class PlayerControlers : MonoBehaviour,IDamagable
         {
             dashCooldownRate = 1;
             playerEvents.OnPlayerDamaged?.Invoke();
-            StopDashing(true);
+            StopDashing();
             StartCoroutine(MoveToGoal(takeDamage));
         }
     }
@@ -159,10 +162,18 @@ public class PlayerControlers : MonoBehaviour,IDamagable
              }
              else if(Time.time > dashElpssetime + dashDuration && isDashing)
               {
-               StopDashing(false);
-              }
-        
-        if(DashAmount<= 0)
+            ballSprite.color = Color.white;
+
+            StopDashing();
+              }else if (!isDashing)
+        {
+            ballSprite.color = Color.white;
+            trailRenderer.enabled = false;
+
+
+        }
+
+        if (DashAmount<= 0)
         {
             dashUseElapseTime -= Time.deltaTime * dashCooldownRate;
             playerEvents.OnChargCoolDown?.Invoke(dashUseElapseTime);
@@ -209,27 +220,23 @@ public class PlayerControlers : MonoBehaviour,IDamagable
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(isDashing)
+      
+        if (collision.gameObject.CompareTag("wall"))
         {
-            // attack.AattackTheEnemy(5 * DashValue);
-
-        }
-        if (collision.gameObject.CompareTag("Enemies"))
-        {
-
+            StopDashing();
         }
        
-         StopDashing(true);
 
     }
-    public void StopDashing(bool isHitWall)
+    public void StopDashing()
     {
+        Debug.Log("sent attack");
+        ballSprite.color = Color.white;
         AddForce(0.3f);
 
         trailRenderer.enabled = false;
 
         canmove = true;
-        ballSprite.color = Color.white;
 
         isDashing = false;
     }

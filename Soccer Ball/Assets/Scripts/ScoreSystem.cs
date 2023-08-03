@@ -50,7 +50,7 @@ public class ScoreSystem : MonoBehaviour
         while(completion < 1)
         {
             Debug.Log("hi");
-            elapsetime += Time.deltaTime;
+            elapsetime += Time.unscaledDeltaTime;
             completion = elapsetime / calaulationTime;
             time.text =Mathf.Lerp(0, timecompleted, completion).ToString("0");
             yield return null;
@@ -62,7 +62,7 @@ public class ScoreSystem : MonoBehaviour
 
         while (completion < 1)
         {
-            elapsetime += Time.deltaTime;
+            elapsetime += Time.unscaledDeltaTime;
             completion = elapsetime / calaulationTime;
             damagecount.text = Mathf.Lerp(0f, (int)timesHit, completion).ToString("0");
             yield return null;
@@ -74,7 +74,7 @@ public class ScoreSystem : MonoBehaviour
 
         while (completion < 1)
         {
-            elapsetime += Time.deltaTime;
+            elapsetime += Time.unscaledDeltaTime;
             completion = elapsetime / calaulationTime;
             hitcount.text = Mathf.Lerp(0f, (int)HighestHitStreak, completion).ToString("0");
             yield return null;
@@ -85,7 +85,7 @@ public class ScoreSystem : MonoBehaviour
 
         while (completion < 1)
         {
-            elapsetime += Time.deltaTime;
+            elapsetime += Time.unscaledDeltaTime;
             completion = elapsetime / calaulationTime;
             yield return null;
 
